@@ -1,7 +1,8 @@
 package io.github.picolot.jogos.view;
 
+import io.github.picolot.jogos.model.enums.Plataforma;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class TelaCadastro extends JFrame {
 
@@ -11,14 +12,16 @@ public class TelaCadastro extends JFrame {
 
     private JTextField campoNome;
     private JTextField campoDescricao;
-    private JComboBox<String> campoPlataforma;
+    private JComboBox<Plataforma> campoPlataforma;
+
+    private JButton botaoSalvar;
 
 
-    public TelaCadastro()  {
+    public TelaCadastro() {
         construirTela();
     }
 
-    private void construirTela(){
+    private void construirTela() {
         setSize(600, 500);
         setTitle("Cadastro de Jogos");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -29,7 +32,7 @@ public class TelaCadastro extends JFrame {
         this.adicionarComponentesFoto();
     }
 
-    private void adicionarCampos(){
+    private void adicionarCampos() {
         labelNome = new JLabel("Nome:");
         labelNome.setBounds(20, 20, 200, 20);
         getContentPane().add(labelNome);
@@ -50,18 +53,21 @@ public class TelaCadastro extends JFrame {
         labelPlataforma.setBounds(20, 100, 200, 20);
         getContentPane().add(labelPlataforma);
 
-        String[] plataformas = {"Playstation", "Xbox", "Switch", "PC"};
-        campoPlataforma = new JComboBox<>(plataformas);
+        campoPlataforma = new JComboBox<>(Plataforma.values());
         campoPlataforma.setBounds(20, 120, 200, 20);
         getContentPane().add(campoPlataforma);
 
+        botaoSalvar = new JButton("Salvar");
+        botaoSalvar.setBounds(20, 160, 100, 20);
+        getContentPane().add(botaoSalvar);
+
     }
 
-    private void adicionarBotoes(){
+    private void adicionarBotoes() {
 
     }
 
-    private void adicionarComponentesFoto(){
+    private void adicionarComponentesFoto() {
 
     }
 }

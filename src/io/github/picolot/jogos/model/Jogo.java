@@ -1,12 +1,14 @@
 package io.github.picolot.jogos.model;
 
+import io.github.picolot.jogos.model.enums.Plataforma;
+
 import java.util.UUID;
 
 public class Jogo {
     private UUID id;
     private String nome;
     private String descricao;
-    private String plataforma;
+    private Plataforma plataforma;
     private byte[] capa;
 
     public Jogo() {
@@ -33,11 +35,11 @@ public class Jogo {
         this.descricao = descricao;
     }
 
-    public String getPlataforma() {
+    public Plataforma getPlataforma() {
         return plataforma;
     }
 
-    public void setPlataforma(String plataforma) {
+    public void setPlataforma(Plataforma plataforma) {
         this.plataforma = plataforma;
     }
 
