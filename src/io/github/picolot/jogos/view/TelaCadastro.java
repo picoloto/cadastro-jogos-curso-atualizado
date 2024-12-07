@@ -1,5 +1,6 @@
 package io.github.picolot.jogos.view;
 
+import io.github.picolot.jogos.controller.CadastroJogo;
 import io.github.picolot.jogos.model.Jogo;
 import io.github.picolot.jogos.model.enums.Plataforma;
 
@@ -88,7 +89,8 @@ public class TelaCadastro extends JFrame {
             jogo.setDescricao(campoDescricao.getText());
             jogo.setPlataforma((Plataforma) campoPlataforma.getSelectedItem());
 
-            JOptionPane.showMessageDialog(null, jogo);
+            CadastroJogo logicaCadastro = new CadastroJogo();
+            logicaCadastro.salvar(jogo);
         };
     }
 }
