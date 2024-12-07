@@ -10,4 +10,6 @@ public interface Cadastro<T> {
     void deletar(UUID id);
 
     void atualizar(T objeto);
+
+    void imprimirRegistros();
 }

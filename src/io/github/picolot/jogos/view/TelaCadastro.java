@@ -1,5 +1,6 @@
 package io.github.picolot.jogos.view;
 
+import io.github.picolot.jogos.controller.Cadastro;
 import io.github.picolot.jogos.controller.CadastroJogo;
 import io.github.picolot.jogos.model.Jogo;
 import io.github.picolot.jogos.model.enums.Plataforma;
@@ -8,6 +9,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class TelaCadastro extends JFrame {
+    Cadastro<Jogo> logicaCadastro;
 
     private JLabel labelNome;
     private JLabel labelDescricao;
@@ -21,10 +23,12 @@ public class TelaCadastro extends JFrame {
 
 
     public TelaCadastro() {
+        this.logicaCadastro = new CadastroJogo();
         construirTela();
     }
 
     private void construirTela() {
+
         setSize(600, 500);
         setTitle("Cadastro de Jogos");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -88,9 +92,13 @@ public class TelaCadastro extends JFrame {
             jogo.setNome(campoNome.getText());
             jogo.setDescricao(campoDescricao.getText());
             jogo.setPlataforma((Plataforma) campoPlataforma.getSelectedItem());
+            campoNome.setText(null);
+            campoDescricao.setText(null);
+            campoPlataforma.setSelectedItem(Plataforma.values()[0]);
+            campoNome.requestFocus();
 
-            CadastroJogo logicaCadastro = new CadastroJogo();
             logicaCadastro.salvar(jogo);
+            System.out.println(logicaCadastro.buscar(jogo.getId()));
         };
     }
 }

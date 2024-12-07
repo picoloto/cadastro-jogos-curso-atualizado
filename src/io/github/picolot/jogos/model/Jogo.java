@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Jogo {
+public class Jogo implements Comparable<Jogo> {
     private UUID id;
     private String nome;
     private String descricao;
@@ -80,5 +80,10 @@ public class Jogo {
                 ", plataforma=" + plataforma +
                 ", capa=" + Arrays.toString(capa) +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Jogo o) {
+        return this.nome.compareTo(o.getNome());
     }
 }
