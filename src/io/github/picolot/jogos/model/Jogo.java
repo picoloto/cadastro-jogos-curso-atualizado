@@ -1,12 +1,16 @@
 package io.github.picolot.jogos.model;
 
+import io.github.picolot.jogos.model.enums.Plataforma;
+
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Jogo {
     private UUID id;
     private String nome;
     private String descricao;
-    private String plataformaPreferida;
+    private Plataforma plataforma;
     private byte[] capa;
 
     public Jogo() {
@@ -33,12 +37,12 @@ public class Jogo {
         this.descricao = descricao;
     }
 
-    public String getPlataformaPreferida() {
-        return plataformaPreferida;
+    public Plataforma getPlataforma() {
+        return plataforma;
     }
 
-    public void setPlataformaPreferida(String plataformaPreferida) {
-        this.plataformaPreferida = plataformaPreferida;
+    public void setPlataforma(Plataforma plataforma) {
+        this.plataforma = plataforma;
     }
 
     public byte[] getCapa() {
@@ -47,5 +51,34 @@ public class Jogo {
 
     public void setCapa(byte[] capa) {
         this.capa = capa;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Jogo jogo = (Jogo) o;
+        return Objects.equals(id, jogo.id) && Objects.equals(nome, jogo.nome) && Objects.equals(descricao, jogo.descricao) && plataforma == jogo.plataforma && Arrays.equals(capa, jogo.capa);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(id);
+        result = 31 * result + Objects.hashCode(nome);
+        result = 31 * result + Objects.hashCode(descricao);
+        result = 31 * result + Objects.hashCode(plataforma);
+        result = 31 * result + Arrays.hashCode(capa);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Jogo{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", plataforma=" + plataforma +
+                ", capa=" + Arrays.toString(capa) +
+                '}';
     }
 }
