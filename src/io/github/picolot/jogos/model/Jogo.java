@@ -6,7 +6,7 @@ public class Jogo {
     private UUID id;
     private String nome;
     private String descricao;
-    private String plataformaPreferida;
+    private String plataforma;
     private byte[] capa;
 
     public Jogo() {
@@ -33,12 +33,12 @@ public class Jogo {
         this.descricao = descricao;
     }
 
-    public String getPlataformaPreferida() {
-        return plataformaPreferida;
+    public String getPlataforma() {
+        return plataforma;
     }
 
-    public void setPlataformaPreferida(String plataformaPreferida) {
-        this.plataformaPreferida = plataformaPreferida;
+    public void setPlataforma(String plataforma) {
+        this.plataforma = plataforma;
     }
 
     public byte[] getCapa() {
